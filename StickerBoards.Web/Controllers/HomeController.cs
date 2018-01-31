@@ -12,9 +12,9 @@ namespace StickerBoards.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly STBoardsRepository _boardsRepository;
+        private readonly IBoardsRepository _boardsRepository;
 
-        public HomeController(STBoardsRepository boardsRepository)
+        public HomeController(IBoardsRepository boardsRepository)
         {
             _boardsRepository = boardsRepository;
         }

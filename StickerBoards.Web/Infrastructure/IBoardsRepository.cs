@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StickerBoards.Web.Infrastructure
 {
-    interface IBoardsRepository
+    public interface IBoardsRepository
     {
         Task<IEnumerable<Board>> GetBoardsAsync();
 

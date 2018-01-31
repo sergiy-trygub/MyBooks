@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StickerBoards.Web.Infrastructure
 {
-    interface IBoardNotesRepository
+    public interface IBoardNotesRepository
     {
         Task<IEnumerable<StickerNote>> GetBoardNotesAsync(Guid boardId);
 
