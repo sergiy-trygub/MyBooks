@@ -10,7 +10,11 @@ namespace MyBooks.Core.Domain.Library
         {
             UserId = userId;
             Book = book;
-            Tags = new List<MyTag>(tags);
+            if (tags != null)
+            {
+                Tags = new List<MyTag>(tags);    
+            }
+            
             Created = DateTime.UtcNow;
         }
 
@@ -22,9 +26,9 @@ namespace MyBooks.Core.Domain.Library
         
         public IReadOnlyCollection<MyTag> Tags { get; }
         
-        public void BeginReading(DateTime startedOn)
+        public MyReadingBook StartReading(DateTime startDate)
         {
-            
+            return new MyReadingBook(UserId, Book, startDate);
         }
     }
 }

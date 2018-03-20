@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MyBooks.Core.Domain.Authors
 {
@@ -19,8 +21,33 @@ namespace MyBooks.Core.Domain.Authors
 
         public static Author Create(string firstName, string lastName)
         {
+            new Validator()
+                .AddErrorIfWrongValue(() => string.IsNullOrEmpty(firstName), AppError.AuthorFirstNameNotSet)
+                .AddErrorIfWrongValue(() => string.IsNullOrEmpty(lastName), AppError.AuthorLastNameNotSet)
+                .ThrowIfErrors();
+            
             var id = new AuthorId(Guid.NewGuid());
             return new Author(id, firstName, lastName);
+        }
+
+        public static Author GetOrCreate(
+            string firstName, 
+            string lastName, 
+            Func<Author> findAuthor)
+        {
+            if (findAuthor == null)
+            {
+                throw new InvalidOperationException();
+            }
+            
+            Author author = findAuthor();
+
+            if (author == null)
+            {
+                author = Create(firstName, lastName);
+            }
+
+            return author;
         }
     }
 }

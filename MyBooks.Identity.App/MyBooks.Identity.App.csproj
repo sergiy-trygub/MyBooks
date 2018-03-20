@@ -3,6 +3,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyBooks.Core.Domain\MyBooks.Core.Domain.csproj" />
+    <Folder Include="Commands" />
+    <Folder Include="Queries" />
   </ItemGroup>
 </Project>
