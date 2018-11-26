@@ -1,0 +1,13 @@
+﻿@model StickerBoards.Web.ViewModels.BoardsViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    @foreach (var board in Model.Boards)
+    {
+    <div>
+        <a asp-controller="Board" asp-action="Notes" asp-route-id=@board.Id.ToString()>@board.Name</a>
+    </div>
+    }
+</div>

@@ -1,0 +1,22 @@
+﻿@model StickerBoards.Web.ViewModels.BoardNotesViewModel
+
+@{
+    ViewData["Title"] = "Notes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Notes</h2>
+
+<p>
+    <a asp-controller="Board" asp-action="AddNote" asp-route-id=@Model.BoardId.ToString()>Create New</a>
+</p>
+@foreach (var item in Model.Notes.OrderByDescending(m => m.Severity))
+{
+<div>
+    @item.Text
+
+    <form asp-controller="Board" asp-action="RemoveNote" method="delete" asp-route-id=@item.BoardId.ToString() asp-route-noteId=@item.Id.ToString()>
+        <button type="submit">Delete</button>
+    </form>
+</div>
+}
