@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
-using MyBooks.Core.Domain.Library;
+using MyBooks.Shared.Commands;
+using IMyBookRepository = MyBooks.Core.App.Repositories.IMyBookRepository;
 
 namespace MyBooks.Core.App.Commands.StartReadingBook
 {

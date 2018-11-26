@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyBooks.Core.Domain.Authors;
-using MyBooks.Core.Domain.Books;
 
-namespace MyBooks.Core.Domain.Library
+namespace MyBooks.Core.App.Domain
 {
     public class MyLibrary
     {
@@ -14,10 +12,10 @@ namespace MyBooks.Core.Domain.Library
         
         public Guid UserId { get; }
         
-        public MyBook AddBook(Book book, IEnumerable<MyTag> tags)
+        public App.Domain.MyBook AddBook(Book book, IEnumerable<MyTag> tags)
         {
            
-            return new MyBook(UserId, book, tags);
+            return new App.Domain.MyBook(UserId, book, tags);
         }
     }
 }

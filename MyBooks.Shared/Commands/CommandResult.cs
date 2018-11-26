@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using MyBooks.Core.Domain;
+using MyBooks.Shared.Domain;
 
-namespace MyBooks.Core.App.Commands
+namespace MyBooks.Shared.Commands
 {
     public sealed class CommandResult<TResult>
     {
@@ -23,10 +23,10 @@ namespace MyBooks.Core.App.Commands
 
         public void AddError(string errorCode, string errorMessage)
         {
-            AddError(new AppError(errorCode, errorMessage));
+            Fail(new AppError(errorCode, errorMessage));
         }        
         
-        public void AddError(params AppError[] errors)
+        public void Fail(params AppError[] errors)
         {
             Succeeded = false;
             _errors.AddRange(errors);

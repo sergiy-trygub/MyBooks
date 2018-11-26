@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>230</y>
+      <w>340</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;aggregate entity&gt;&gt;
+Core::MyBook
+--
+UserId: Guid
+Book: Isbn
+Created: DateTime
+Tags: IReadOnlyCollection&lt;Tag&gt;
+--
+StartReading(Datetime startDate) : MyReadingBook</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>230</y>
+      <w>210</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Core::Book
+--
+Id: Isbn
+Title: string
+Description: String
+Author: Author
+PublishDate: DateTime</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1080</x>
+      <y>230</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Core::Author
+--
+Id: Guid
+FirstName: string
+LastName: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>270</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>520</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value object&gt;&gt;
+Core::Tag
+--
+Value: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>460</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>130</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;factory&gt;&gt;
+Core::MyLibrary
+--
+UserId: Guid
+--
+AddBook(Book, List&lt;Tag&gt;): MyBook
+StartReading(Book, DateTime): MyBook
+RemoveBook(Book): MyBook
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

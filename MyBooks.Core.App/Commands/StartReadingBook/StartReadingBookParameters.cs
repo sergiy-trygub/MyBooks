@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using MyBooks.Shared.Commands;
+using MyBooks.Shared.Domain;
 
 namespace MyBooks.Core.App.Commands.StartReadingBook
 {
-    public sealed class StartReadingBookParameters : IValidatableObject
+    public sealed class StartReadingBookParameters : ICommandValidator
     {
         public string Isbn { get; set; }
         
         public DateTime StartDate { get; set; }
         
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public AppError[] Validate()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

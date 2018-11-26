@@ -4,5 +4,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyBooks.Core.Domain\MyBooks.Core.Domain.csproj" />
+    <ProjectReference Include="..\MyBooks.Shared\MyBooks.Shared.csproj" />
   </ItemGroup>
 </Project>

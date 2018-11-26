@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyBooks.Core.Domain
+namespace MyBooks.Shared.Domain
 {
     public class Validator
     {

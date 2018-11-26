@@ -1,4 +1,4 @@
-﻿namespace MyBooks.Core.Domain
+﻿namespace MyBooks.Shared.Domain
 {
     public interface IAggregateRoot
     {

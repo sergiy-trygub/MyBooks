@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyBooks.Core.Domain
+namespace MyBooks.Shared.Domain
 {
     public class DomainException : Exception
     {

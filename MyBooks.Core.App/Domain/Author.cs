@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using MyBooks.Shared.Domain;
 
-namespace MyBooks.Core.Domain.Authors
+namespace MyBooks.Core.App.Domain
 {
-    public class Author
+    public class Author : ValueObject
     {
-        public Author(AuthorId id, string firstName, string lastName)
+        public Author(string firstName, string lastName)
         {
-            Id = id;
             FirstName = firstName;
             LastName = lastName;
         }
 
-        public AuthorId Id { get; }
-        
         public string FirstName { get; }
-        
+
         public string LastName { get; }
 
         public static Author Create(string firstName, string lastName)
@@ -25,21 +21,20 @@ namespace MyBooks.Core.Domain.Authors
                 .AddErrorIfWrongValue(() => string.IsNullOrEmpty(firstName), AppError.AuthorFirstNameNotSet)
                 .AddErrorIfWrongValue(() => string.IsNullOrEmpty(lastName), AppError.AuthorLastNameNotSet)
                 .ThrowIfErrors();
-            
-            var id = new AuthorId(Guid.NewGuid());
-            return new Author(id, firstName, lastName);
+
+            return new Author(firstName, lastName);
         }
 
         public static Author GetOrCreate(
-            string firstName, 
-            string lastName, 
+            string firstName,
+            string lastName,
             Func<Author> findAuthor)
         {
             if (findAuthor == null)
             {
                 throw new InvalidOperationException();
             }
-            
+
             Author author = findAuthor();
 
             if (author == null)

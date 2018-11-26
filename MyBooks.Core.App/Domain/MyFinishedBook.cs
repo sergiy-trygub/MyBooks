@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyBooks.Core.Domain.Books;
 
-namespace MyBooks.Core.Domain.Library
+namespace MyBooks.Core.App.Domain
 {
-    public class MyFinishedBook : MyBook
+    public class MyFinishedBook : App.Domain.MyBook
     {
         public MyFinishedBook(Guid userId, Book book, IEnumerable<MyTag> tags) : base(userId, book, tags)
         {

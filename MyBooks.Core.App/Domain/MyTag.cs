@@ -1,4 +1,6 @@
-﻿namespace MyBooks.Core.Domain.Library
+﻿using MyBooks.Shared.Domain;
+
+namespace MyBooks.Core.App.Domain
 {
     public class MyTag : ValueObject
     {

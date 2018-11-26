@@ -1,4 +1,4 @@
-﻿namespace MyBooks.Core.Domain.Books
+﻿namespace MyBooks.Core.App.Domain
 {
     public class BookId
     {

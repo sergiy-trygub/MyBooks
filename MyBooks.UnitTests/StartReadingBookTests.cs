@@ -2,9 +2,8 @@
 using System.Threading.Tasks;
 using Moq;
 using MyBooks.Core.App.Commands.StartReadingBook;
-using MyBooks.Core.Domain.Authors;
-using MyBooks.Core.Domain.Books;
-using MyBooks.Core.Domain.Library;
+using MyBooks.Core.App.Domain;
+using MyBooks.Core.App.Repositories;
 using Xunit;
 
 namespace MyBooks.UnitTests
@@ -21,7 +20,7 @@ namespace MyBooks.UnitTests
 
             _bookRepoMock.Setup(m => m.FindAsync(It.IsAny<string>())).Returns(() =>
             {
-                var book = new Book(new BookId("test"), "test title", "test description", new AuthorId(Guid.NewGuid()));
+                var book = new Book(new BookId("test"), "test title", "test description", Author.Create("firstname", "lastname"));
                 return Task.FromResult(new MyBook(Guid.NewGuid(), book, null));
             });
         }

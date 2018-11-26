@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyBooks.Core.Domain.Books;
+using MyBooks.Shared.Domain;
 
-namespace MyBooks.Core.Domain.Library
+namespace MyBooks.Core.App.Domain
 {
     public class MyBook : IAggregateRoot
     {

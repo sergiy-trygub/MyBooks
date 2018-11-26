@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using MyBooks.Core.Domain;
-using MyBooks.Core.Domain.Authors;
+using MyBooks.Core.App.Domain;
+using MyBooks.Shared.Domain;
 using Xunit;
 
 namespace MyBooks.UnitTests

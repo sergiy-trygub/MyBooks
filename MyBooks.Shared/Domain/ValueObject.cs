@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyBooks.Core.Domain
+﻿namespace MyBooks.Shared.Domain
 {
     public abstract class ValueObject
     {

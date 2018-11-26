@@ -1,11 +1,10 @@
 using System;
 using System.Threading.Tasks;
 using Moq;
-using MyBooks.Core.App;
-using MyBooks.Core.App.Commands;
 using MyBooks.Core.App.Commands.AddBookToLibrary;
-using MyBooks.Core.Domain.Authors;
-using MyBooks.Core.Domain.Library;
+using MyBooks.Core.App.Domain;
+using MyBooks.Core.App.Repositories;
+using MyBooks.Shared.Commands;
 using Xunit;
 
 namespace MyBooks.UnitTests
@@ -13,7 +12,8 @@ namespace MyBooks.UnitTests
     public class AddBookToLibraryTests
     {
         private readonly Mock<IAuthorRepository> _authorRepoMock = new Mock<IAuthorRepository>();
-        private readonly Mock<IMyBookRepository> _bookRepoMock = new Mock<IMyBookRepository>();
+        private readonly Mock<IMyBookRepository> _mybookRepoMock = new Mock<IMyBookRepository>();
+        private readonly Mock<IBookRepository> _bookRepoMock = new Mock<IBookRepository>();
 
         public AddBookToLibraryTests()
         {
@@ -24,7 +24,7 @@ namespace MyBooks.UnitTests
                 return Task.FromResult(author);
             });
 
-            _bookRepoMock.Setup(m => m.SaveAsync(It.IsAny<MyBook>())).Returns(() => {
+            _mybookRepoMock.Setup(m => m.SaveAsync(It.IsAny<MyBook>())).Returns(() => {
                 return Task.FromResult(1);
             });
         }
@@ -32,7 +32,8 @@ namespace MyBooks.UnitTests
         [Fact]
         public async Task Add_Book_ToLibrary_Test()
         {
-            AddBookToLibraryCommand command = new AddBookToLibraryCommand(_authorRepoMock.Object, _bookRepoMock.Object);
+            AddBookToLibraryCommand command =
+                new AddBookToLibraryCommand(_authorRepoMock.Object, _mybookRepoMock.Object, _bookRepoMock.Object);
 
             var parameters = new AddBookParameters
             {
