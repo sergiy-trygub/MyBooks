@@ -31,5 +31,10 @@ namespace MyBooks.UnitTests
         {
 
         }
+
+        public void New_new_test()
+        {
+
+        }
     }
 }
