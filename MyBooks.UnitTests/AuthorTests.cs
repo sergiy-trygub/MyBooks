@@ -26,5 +26,10 @@ namespace MyBooks.UnitTests
             Assert.Equal("firstname", author.FirstName);
             Assert.Equal("lastname", author.LastName);
         }
+
+        public void New_test()
+        {
+
+        }
     }
 }
